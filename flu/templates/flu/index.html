@@ -1,0 +1,184 @@
+{% extends 'flu/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-v1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">インフルエンザ予防啓発</span>
+                <h1 class="heading mb-3">安全に🤗健康に👩‍⚕️</h1>
+                <p class="mb-5">インフルエンザからご自身と大切な人を守る方法を学びましょう。ワクチン接種、手洗い、予防方法について正しい知識を身につけてください。</p>
+                <p class="mb-4"><a href="{% url 'flu:prevention' %}" class="btn btn-primary">予防方法を見る</a></p>
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration">
+                    <!-- プレースホルダー画像 - 独自の画像を追加できます -->
+                    <img src="{% static 'flu/images/illustration.png' %}" alt="インフルエンザ予防" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is Flu Section -->
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <figure class="img-play-vid">
+                    <img src="{% static 'flu/images/hero_1.png' %}" alt="インフルエンザ情報" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="mb-4 section-heading">インフルエンザとは？</h2>
+                <p>インフルエンザ（flu）は、インフルエンザウイルスによって引き起こされる感染性の呼吸器疾患で、鼻、喉、時には肺に感染します。軽度から重度の病気を引き起こし、時には死に至ることもあります。</p>
+                <ul class="list-check list-unstyled mb-5">
+                    <li>主に飛沫を通じて感染します</li>
+                    <li>秋から冬にかけて最も一般的です</li>
+                    <li>毎年のワクチン接種で予防できます</li>
+                    <li>普通の風邪とは異なります</li>
+                    <li>深刻な合併症を引き起こす可能性があります</li>
+                </ul>
+                <p><a href="{% url 'flu:symptoms' %}" class="btn btn-primary">症状について</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Prevention Section -->
+<div class="site-section bg-primary-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-6 col-lg-6 mt-lg-5">
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-hand-washing"></span>
+                            </div>
+                            <div class="body">
+                                <h3>手洗いをする</h3>
+                                <p>石鹸と水で20秒以上こまめに手を洗いましょう</p>
+                            </div>
+                        </div>
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-patient"></span>
+                            </div>
+                            <div class="body">
+                                <h3>ワクチン接種</h3>
+                                <p>年1回のインフルエンザワクチン接種が最も効果的な予防法です</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-6">
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-social-distancing"></span>
+                            </div>
+                            <div class="body">
+                                <h3>病人を避ける</h3>
+                                <p>可能な限り病気の人から離れましょう</p>
+                            </div>
+                        </div>
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-stay-at-home"></span>
+                            </div>
+                            <div class="body">
+                                <h3>病気の時は自宅待機</h3>
+                                <p>他の人への感染を防ぎましょう</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="section-heading mb-4">インフルエンザを予防するには？</h2>
+                <p>インフルエンザワクチンは、ご自身とご家族をインフルエンザから守る最善の方法です。その他、良好な衛生習慣と健康的な生活習慣も予防に役立ちます。</p>
+                <p class="mb-4">重症化のリスクが高い人は、特に年1回のワクチン接種が重要です。</p>
+                <ul class="list-check list-unstyled mb-5">
+                    <li>年1回のインフルエンザワクチン接種</li>
+                    <li>適切な手指衛生の実践</li>
+                    <li>顔を触らないようにする</li>
+                </ul>
+                <p><a href="{% url 'flu:prevention' %}" class="btn btn-primary">予防についてもっと読む</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Symptoms Section -->
+<div class="site-section bg-primary-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="mb-4 section-heading">インフルエンザの症状</h2>
+                <p>インフルエンザの症状は通常突然現れます。インフルエンザ患者は、これらの症状の一部またはすべてを感じることがよくあります。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_high-fever.png' %}" alt="発熱" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>発熱・悪寒</h3>
+                        <p>38°C以上の高熱。ただし、すべてのインフルエンザ患者が発熱するわけではありません</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_cough.png' %}" alt="咳" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>咳</h3>
+                        <p>数週間続く持続的な乾いた咳または湿った咳</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_sore-troath.png' %}" alt="喉の痛み" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>喉の痛み</h3>
+                        <p>飲み込む時に悪化する喉の痛みや刺激感</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_headache.png' %}" alt="頭痛" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>頭痛・筋肉痛</h3>
+                        <p>筋肉や体の痛みと持続的な頭痛</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <div class="note row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <strong>医師の診察が必要な場合：</strong> 呼吸困難、胸痛、持続する発熱、重度の症状がある場合は、直ちに医療機関を受診してください。
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a href="{% url 'flu:contact' %}" class="btn btn-primary">
+                            <span class="icon-phone mr-2"></span>お問い合わせ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

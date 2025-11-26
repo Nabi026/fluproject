@@ -1,0 +1,196 @@
+{% extends 'flu/base.html' %}
+{% load static %}
+
+{% block title %}インフルエンザ予防 - 安全に過ごす{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-v1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">インフルエンザ予防啓発</span>
+                <h1 class="heading mb-3">安全に🤗健康に👩‍⚕️</h1>
+                <p class="mb-5">インフルエンザを予防し、ご自身と大切な人を感染から守るためのベストプラクティスを学びましょう。</p>
+                <p class="mb-4"><a href="#prevention-tips" class="btn btn-primary">予防方法を見る</a></p>
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration-2">
+                    <img src="{% static 'flu/images/protect.png' %}" alt="インフルエンザ予防" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Prevention Section -->
+<div class="site-section bg-primary-light" id="prevention-tips">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-6 col-lg-6 mt-lg-5">
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-stay-at-home"></span>
+                            </div>
+                            <div class="body">
+                                <h3>自宅で過ごす</h3>
+                                <p>病気の時は自宅で過ごし、地域社会の他の人への感染を防ぎましょう。</p>
+                            </div>
+                        </div>
+
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-patient"></span>
+                            </div>
+                            <div class="body">
+                                <h3>ワクチン接種</h3>
+                                <p>年1回のインフルエンザワクチン接種が、季節性インフルエンザを予防する最も効果的な方法です。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-6">
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-social-distancing"></span>
+                            </div>
+                            <div class="body">
+                                <h3>病人を避ける</h3>
+                                <p>可能な限り病気の人から距離を保ち、接触を減らしましょう。</p>
+                            </div>
+                        </div>
+
+                        <div class="media-v1 bg-1">
+                            <div class="icon-wrap">
+                                <span class="flaticon-hand-washing"></span>
+                            </div>
+                            <div class="body">
+                                <h3>手を洗う</h3>
+                                <p>石鹸と水で少なくとも20秒間、頻繁に手を洗いましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="section-heading mb-4">インフルエンザを予防するには？</h2>
+                <p>インフルエンザワクチンは、インフルエンザに罹るリスクと他の人への感染を減らす最善の方法です。より多くの人がワクチン接種を受けることで、地域社会でのインフルエンザの流行を抑えることができます。</p>
+                <p class="mb-4">良好な健康習慣も、細菌の拡散を止め、インフルエンザなどの呼吸器疾患を予防するのに役立ちます。</p>
+
+                <ul class="list-check list-unstyled mb-5">
+                    <li>年1回のインフルエンザワクチン接種を受ける</li>
+                    <li>石鹸で定期的に手を洗う</li>
+                    <li>目、鼻、口に触れるのを避ける</li>
+                    <li>咳やくしゃみを覆う</li>
+                    <li>表面を清掃・消毒する</li>
+                </ul>
+
+                <p><a href="{% url 'flu:about' %}" class="btn btn-primary">インフルエンザについてもっと読む</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- More Preventions Section -->
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-7 text-center mx-auto">
+                <h2 class="section-heading">さらなる予防のヒント</h2>
+                <p>ご自身と他の人をインフルエンザから守るための追加の対策。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-stay-at-home"></span>
+                    </div>
+                    <div class="body">
+                        <h3>自宅で過ごす</h3>
+                        <p>体調が悪いと感じたら、ウイルスの拡散を避けるため、仕事や学校を休みましょう。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-patient"></span>
+                    </div>
+                    <div class="body">
+                        <h3>マスクを着用</h3>
+                        <p>インフルエンザシーズン中、特に高リスクの方は、混雑した場所でマスクの着用を検討しましょう。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-social-distancing"></span>
+                    </div>
+                    <div class="body">
+                        <h3>距離を保つ</h3>
+                        <p>咳やくしゃみをしている人から適切な距離を保ちましょう。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-hand-washing"></span>
+                    </div>
+                    <div class="body">
+                        <h3>手を洗う</h3>
+                        <p>定期的な手洗いは、細菌を除去し、病気を避ける最善の方法の一つです。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Do's and Don'ts Section -->
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <span class="subheading">必要な対策</span>
+                <h2 class="mb-4 section-heading">自分を守る方法</h2>
+                <p>インフルエンザに罹ったり、拡散したりするリスクを最小限に抑えるため、これらのガイドラインに従ってください。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row mt-5 pt-5">
+                    <div class="col-lg-6 do">
+                        <h3>すべきこと</h3>
+                        <ul class="list-unstyled check">
+                            <li>年1回ワクチン接種を受ける</li>
+                            <li>病気の時はマスクを着用</li>
+                            <li>手指消毒剤を使用する</li>
+                            <li>表面を消毒する</li>
+                            <li>頻繁に手を洗う</li>
+                            <li>病気の時は自宅待機</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 dont">
+                        <h3>避けるべきこと</h3>
+                        <ul class="list-unstyled cross">
+                            <li>病気の人を避ける</li>
+                            <li>食器を共有しない</li>
+                            <li>握手を避ける</li>
+                            <li>表面に触れるのを避ける</li>
+                            <li>顔を触らない</li>
+                            <li>混雑した場所を避ける</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'flu/images/protect.png' %}" alt="予防ガイドライン" class="img-fluid" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends 'flu/base.html' %}
+{% load static %}
+
+{% block title %}インフルエンザの症状 - 認識と治療{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-v1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">インフルエンザの症状</span>
+                <h1 class="heading mb-3">兆候を認識する</h1>
+                <p class="mb-5">インフルエンザの症状を早期に見極めることで、適切な治療を受け、他の人へのウイルスの拡散を防ぐことができます。</p>
+                <p class="mb-4"><a href="{% url 'flu:prevention' %}" class="btn btn-primary">予防方法を見る</a></p>
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration-2">
+                    <img src="{% static 'flu/images/symptoms.png' %}" alt="インフルエンザの症状" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Symptoms Section -->
+<div class="site-section bg-primary-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="mb-4 section-heading">一般的なインフルエンザの症状</h2>
+                <p>インフルエンザの症状は通常突然現れます。インフルエンザ患者は、これらの症状の一部またはすべてを感じることがよくあります。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_high-fever.png' %}" alt="発熱" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>高熱</h3>
+                        <p>発熱または発熱感・悪寒。38°C以上の体温。ただし、すべてのインフルエンザ患者が発熱するわけではありません。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_cough.png' %}" alt="咳" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>咳</h3>
+                        <p>他の症状が改善した後でも数週間続く、持続的な乾いた咳または湿った咳。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_sore-troath.png' %}" alt="喉の痛み" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>喉の痛み</h3>
+                        <p>飲み込むときにしばしば悪化する、喉の痛み、かすれ、または刺激感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_headache.png' %}" alt="頭痛" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>頭痛・筋肉痛</h3>
+                        <p>全身の筋肉痛や体の痛み、持続的な頭痛はインフルエンザの一般的な症状です。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_fatigue.png' %}" alt="倦怠感" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>倦怠感・脱力感</h3>
+                        <p>数週間続くことがあり、日常生活を困難にする極度の疲労感と脱力感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                    <div class="img">
+                        <img src="{% static 'flu/images/symptom_runny.png' %}" alt="鼻づまり" class="img-fluid" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text">
+                        <h3>鼻水または鼻づまり</h3>
+                        <p>特にインフルエンザに罹った子供によく見られる鼻づまりと鼻水。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <div class="note row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <strong>医師の診察が必要な場合：</strong> 呼吸困難、胸痛、持続する高熱、重度の脱力感、または混乱状態がある場合は、直ちに医療機関を受診してください。
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a href="{% url 'flu:contact' %}" class="btn btn-primary">
+                            <span class="icon-phone mr-2"></span>お問い合わせ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Flu vs Cold Section -->
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="section-heading">インフルエンザと風邪の違い</h2>
+                <p>違いを理解することで、適切な治療を受けることができます。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="text-info">インフルエンザの症状</h3>
+                        <ul class="list-unstyled">
+                            <li>✓ 突然の発症</li>
+                            <li>✓ 高熱（38-40°C）</li>
+                            <li>✓ 重度の筋肉痛</li>
+                            <li>✓ 極度の倦怠感</li>
+                            <li>✓ 乾いた咳</li>
+                            <li>✓ 頭痛</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="text-info">風邪の症状</h3>
+                        <ul class="list-unstyled">
+                            <li>✓ 徐々に発症</li>
+                            <li>✓ まれまたは軽度の発熱</li>
+                            <li>✓ 軽度の筋肉痛</li>
+                            <li>✓ 軽度の倦怠感</li>
+                            <li>✓ 鼻づまり・鼻水</li>
+                            <li>✓ くしゃみ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

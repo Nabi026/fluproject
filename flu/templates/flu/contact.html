@@ -1,0 +1,335 @@
+{% extends 'flu/base.html' %}
+{% load static %}
+
+{% block title %}お問い合わせ - インフルエンザ予防と情報{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-v1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">お問い合わせ</span>
+                <h1 class="heading mb-3">ご連絡ください</h1>
+                <p class="mb-5">インフルエンザの予防、症状、ワクチン接種について質問がありますか？お気軽にお問い合わせください。詳しい情報やサポートを提供いたします。</p>
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration-2">
+                    <img src="{% static 'flu/images/contact.png' %}" alt="インフルエンザの症状" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form Section -->
+<div class="site-section">
+    <div class="container">
+        <!-- Success/Error Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <strong>
+                        {% if message.tags == 'success' %}
+                            <span class="icon-check mr-2"></span>送信成功！
+                        {% elif message.tags == 'error' %}
+                            <span class="icon-close mr-2"></span>エラー
+                        {% endif %}
+                    </strong>
+                    <p class="mb-0 mt-2">{{ message }}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><span class="icon-close mr-2"></span>入力エラー</strong>
+                <p class="mt-2 mb-2">以下のエラーを修正してください：</p>
+                <ul class="mb-0">
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h3 class="mb-4">メッセージを送信</h3>
+                <p class="mb-4">下記のフォームにご記入ください。できるだけ早くご返信いたします。医療上の緊急事態の場合は、119番に電話するか、最寄りの救急病院を受診してください。</p>
+                
+                <form method="post" action="{% url 'flu:contact' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="fname">名</label>
+                                <input type="text" id="fname" name="first_name" class="form-control" 
+                                       value="{% if form_data %}{{ form_data.first_name }}{% endif %}" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="lname">姓</label>
+                                <input type="text" id="lname" name="last_name" class="form-control" 
+                                       value="{% if form_data %}{{ form_data.last_name }}{% endif %}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="email">メールアドレス</label>
+                                <input type="email" id="email" name="email" class="form-control" 
+                                       value="{% if form_data %}{{ form_data.email }}{% endif %}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="phone">電話番号（任意）</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" 
+                                       value="{% if form_data %}{{ form_data.phone }}{% endif %}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="subject">件名</label>
+                                <select id="subject" name="subject" class="form-control" required>
+                                    <option value="">件名を選択してください</option>
+                                    <option value="general" {% if form_data.subject == 'general' %}selected{% endif %}>一般的なお問い合わせ</option>
+                                    <option value="vaccination" {% if form_data.subject == 'vaccination' %}selected{% endif %}>ワクチン接種について</option>
+                                    <option value="symptoms" {% if form_data.subject == 'symptoms' %}selected{% endif %}>症状に関する質問</option>
+                                    <option value="prevention" {% if form_data.subject == 'prevention' %}selected{% endif %}>予防のヒント</option>
+                                    <option value="other" {% if form_data.subject == 'other' %}selected{% endif %}>その他</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="message">メッセージ</label>
+                                <textarea name="message" id="message" class="form-control" cols="30" rows="8" placeholder="どのようなご質問でしょうか..." required>{% if form_data %}{{ form_data.message }}{% endif %}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="submit" class="btn btn-primary btn-lg" value="送信する">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-5 ml-auto">
+                <h3 class="mb-4 side-title">お問い合わせ情報</h3>
+                
+                <div class="quick-contact mb-5">
+                    <div class="d-flex mb-3">
+                        <span class="icon-phone mr-3 text-primary"></span>
+                        <div>
+                            <strong>ヘルプライン</strong>
+                            <p><a href="tel:0120000000">0120-000-000</a></p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <span class="icon-envelope mr-3 text-primary"></span>
+                        <div>
+                            <strong>メール</strong>
+                            <p><a href="mailto:info@fluinfo.com">info@fluinfo.com</a></p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <span class="icon-clock-o mr-3 text-primary"></span>
+                        <div>
+                            <strong>受付時間</strong>
+                            <p>月曜日 - 金曜日: 8:00 - 20:00<br>
+                            土曜日 - 日曜日: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <span class="icon-globe mr-3 text-primary"></span>
+                        <div>
+                            <strong>関連リソース</strong>
+                            <p><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/infulenza/index.html" target="_blank">厚生労働省 インフルエンザ情報</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-primary-light p-4 rounded">
+                    <h4 class="mb-3">緊急時のお知らせ</h4>
+                    <p><strong>医療上の緊急事態の場合は、このフォームを使用しないでください。</strong></p>
+                    <p class="mb-2">以下の症状がある場合は、直ちに119番に電話するか、最寄りの救急病院を受診してください：</p>
+                    <ul class="list-unstyled">
+                        <li>• 呼吸困難または息切れ</li>
+                        <li>• 持続する胸痛または圧迫感</li>
+                        <li>• 混乱または意識が保てない</li>
+                        <li>• 唇や顔が青白い</li>
+                        <li>• 激しい嘔吐または持続する嘔吐</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">よくある質問</h2>
+                <p>インフルエンザとワクチン接種に関するよくある質問への回答</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                    インフルエンザワクチンの効果はどのくらいですか？
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                ワクチンウイルスが流行しているウイルスと一致する場合、インフルエンザワクチン接種により、インフルエンザに罹患するリスクが40〜60%減少します。効果が低い場合でも、ワクチン接種は重症化や合併症を軽減することで重要な効果をもたらします。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                    いつワクチン接種を受けるべきですか？
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                インフルエンザの流行が始まる前の10月末までに接種することを推奨しています。ただし、遅い時期の接種でもインフルエンザシーズンを通じて効果があります。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                    インフルエンザワクチンでインフルエンザに罹りますか？
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                いいえ。インフルエンザワクチンでインフルエンザに罹ることはありません。ワクチンには不活化ウイルスが含まれているか、全くウイルスが含まれていません。接種部位の痛みや微熱などの軽い副反応が出ることがありますが、これらはインフルエンザではありません。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour">
+                                    ワクチン接種を受けるべきでない人は？
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                6ヶ月未満の乳児や、インフルエンザワクチンの成分に対して重度の生命を脅かすアレルギーがある人はワクチン接種を受けるべきではありません。懸念事項がある場合や、過去にインフルエンザワクチンに対して重度の反応があった場合は、医師にご相談ください。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p class="lead">その他のご質問は？ <a href="{% url 'flu:about' %}">インフルエンザについてのページ</a>をご覧いただくか、上記のフォームからお問い合わせください。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Custom styling for alert messages */
+.alert {
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-error,
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert strong {
+    font-size: 1.1em;
+    display: block;
+}
+
+.alert .icon-check,
+.alert .icon-close {
+    font-size: 1.2em;
+}
+
+.alert .close {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.alert .close:hover {
+    opacity: .75;
+}
+</style>
+
+<script>
+// Auto-dismiss success messages after 5 seconds
+document.addEventListener('DOMContentLoaded', function() {
+    const successAlerts = document.querySelectorAll('.alert-success');
+    successAlerts.forEach(function(alert) {
+        setTimeout(function() {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        }, 5000);
+    });
+    
+    // Scroll to top if there are messages
+    if (document.querySelector('.alert')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+});
+</script>
+{% endblock %}

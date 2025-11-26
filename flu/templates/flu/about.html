@@ -1,0 +1,234 @@
+{% extends 'flu/base.html' %}
+{% load static %}
+
+{% block title %}インフルエンザについて - インフルエンザを理解する{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-v1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">インフルエンザについて</span>
+                <h1 class="heading mb-3">インフルエンザを理解する</h1>
+                <p class="mb-5">インフルエンザとその公衆衛生への影響について学び、なぜ毎年のワクチン接種が自分自身とコミュニティを守るために重要なのかを理解しましょう。</p>
+                <p class="mb-4"><a href="{% url 'flu:prevention' %}" class="btn btn-primary">予防方法</a></p>
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration">
+                    <img src="{% static 'flu/images/illustration.png' %}" alt="インフルエンザ情報" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is Flu Section -->
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <figure class="img-play-vid">
+                    <img src="{% static 'flu/images/hero_1.png' %}" alt="インフルエンザ情報" class="img-fluid" onerror="this.style.display='none'">
+                </figure>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="mb-4 section-heading">インフルエンザとは？</h2>
+                <p>インフルエンザ（flu）は、インフルエンザウイルスによって引き起こされる感染性の呼吸器疾患で、鼻、喉、時には肺に感染します。軽度から重度の病気を引き起こし、時には死に至ることもあります。</p>
+                <ul class="list-check list-unstyled mb-5">
+                    <li>主に飛沫を通じて感染します</li>
+                    <li>秋から冬にかけて最も一般的です</li>
+                    <li>毎年のワクチン接種で予防できます</li>
+                    <li>普通の風邪とは異なります</li>
+                    <li>深刻な合併症を引き起こす可能性があります</li>
+                </ul>
+                <p><a href="{% url 'flu:symptoms' %}" class="btn btn-primary">症状について</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Types of Influenza Section -->
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 text-center mx-auto">
+                <h2 class="section-heading">インフルエンザウイルスの種類</h2>
+                <p>インフルエンザウイルスには4つのタイプがありますが、季節的に人間に影響を与えるのは主に2つのタイプです。</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="text-info">A型インフルエンザ</h3>
+                        <p>季節性の流行を引き起こす最も一般的なタイプです。A型インフルエンザウイルスは、表面にある2つのタンパク質、ヘマグルチニン（H）とノイラミニダーゼ（N）に基づいてサブタイプに分類されます。</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>✓ 人間と動物の両方に感染します</li>
+                            <li>✓ パンデミックの原因となります</li>
+                            <li>✓ H1N1やH3N2などのサブタイプがあります</li>
+                            <li>✓ 変異により急速に変化します</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="text-info">B型インフルエンザ</h3>
+                        <p>人間にのみ感染し、一般的にA型よりも症状が軽いですが、それでも深刻な病気を引き起こす可能性があります。B型インフルエンザウイルスは、B/山形系統とB/ビクトリア系統の2つの系統に分類されます。</p>
+                        <ul class="list-unstyled mt-3">
+                            <li>✓ 人間にのみ感染します</li>
+                            <li>✓ A型よりもゆっくり変化します</li>
+                            <li>✓ アウトブレイクを引き起こす可能性があります</li>
+                            <li>✓ インフルエンザワクチンに含まれています</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- High Risk Groups Section -->
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading mb-4">高リスク群とは？</h2>
+                <p>特定のグループは、インフルエンザに関連する深刻な合併症を発症するリスクが高くなります。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="media-v1 bg-1 text-center">
+                    <div class="body">
+                        <h3>乳幼児</h3>
+                        <p>5歳未満の子供、特に2歳未満</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="media-v1 bg-1 text-center">
+                    <div class="body">
+                        <h3>高齢者</h3>
+                        <p>65歳以上の成人</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="media-v1 bg-1 text-center">
+                    <div class="body">
+                        <h3>妊婦</h3>
+                        <p>妊娠中および産後の女性</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="media-v1 bg-1 text-center">
+                    <div class="body">
+                        <h3>慢性疾患患者</h3>
+                        <p>基礎疾患や免疫低下の方</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vaccination Information Section -->
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">インフルエンザワクチンに関する重要な事実</h2>
+                <p class="lead">毎年のワクチン接種はインフルエンザを予防する最も効果的な方法です</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <span class="text-primary" style="font-size: 3rem;">
+                                <span class="flaticon-patient" style="color: #FF746C;"></span>
+                            </span>
+                        </div>
+                        <h4>誰がワクチン接種を受けるべきか？</h4>
+                        <p>6ヶ月以上のすべての人が、まれな例外を除いて、毎シーズンインフルエンザワクチンを接種すべきです。高リスク群の人々にとっては特に重要です。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <span class="text-primary" style="font-size: 3rem;">
+                                <span class="flaticon-virus" style="color: #FF746C;"></span>
+                            </span>
+                        </div>
+                        <h4>なぜ毎年のワクチン接種が必要か？</h4>
+                        <p>インフルエンザウイルスは常に変化するため、ワクチンは毎年更新されます。また、ワクチン接種による免疫保護は時間とともに低下します。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <span class="text-primary" style="font-size: 3rem;">
+                                <span class="flaticon-hand-washing" style="color: #FF746C;"></span>
+                            </span>
+                        </div>
+                        <h4>ワクチンの有効性</h4>
+                        <p>ワクチンが流行しているウイルスと一致する場合、インフルエンザの発症を40〜60％減少させます。部分的な保護でも重症度と合併症を軽減します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Flu Season Information -->
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">インフルエンザシーズンを理解する</h2>
+                <p>インフルエンザの活動がピークに達する時期を知ることで、準備と予防ができます</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="text-info">インフルエンザシーズンはいつ？</h4>
+                        <p>アメリカでは、インフルエンザシーズンは通常秋から春にかけて続き、12月から2月の間にピークに達することが多いです。ただし、インフルエンザウイルスは一年中流行する可能性があります。</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><strong>10月〜11月：</strong>シーズン開始</li>
+                            <li><strong>12月〜2月：</strong>ピーク活動</li>
+                            <li><strong>3月〜5月：</strong>活動低下</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="text-info">ワクチン接種のタイミング</h4>
+                        <p>CDCは10月末までにワクチン接種を受けることを推奨していますが、後からの接種でも効果があります。ワクチン接種後、保護効果が発現するまでに約2週間かかります。</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><strong>理想的な時期：</strong>9月〜10月</li>
+                            <li><strong>それでも効果的：</strong>インフルエンザシーズン中</li>
+                            <li><strong>保護開始時期：</strong>接種後約2週間</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
